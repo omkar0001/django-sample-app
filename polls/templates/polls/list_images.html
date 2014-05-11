@@ -1,0 +1,25 @@
+<h1>
+List of images
+</h1>
+<form method="post"  action="/polls/search_images/">
+
+<select name="tag_list">
+  <option value=-1 selected>All</option>
+  {% for each_tag in list_tags %}
+    {% if each_tag.id == tag_selected_id %}
+      <option value={{each_tag.id}} selected>{{each_tag.name}}</option>
+    {% else %}
+       <option value={{each_tag.id}}>{{each_tag.name}}</option> 
+    {% endif %}
+  {% endfor %}  
+    
+</select>
+<input type="submit" value="Search">
+
+</form>
+<ul>
+	{% for each_image in list_images %}
+		<li><img height="60px" width="60px" src="/media/{{each_image.imageField}}"></img></li>
+	{% endfor %}
+  
+</ul>

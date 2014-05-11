@@ -1,7 +1,16 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from taggit.managers import TaggableManager
+#Image model
+class ImageModel(models.Model):
+    imageField = models.FileField(upload_to="images")
+    #Taggit manager
+    tags = TaggableManager()
 
+"""
+Ignore the below Models
+"""    
 # Create your models here.
 class Poll(models.Model):
     question = models.CharField(max_length=200)
