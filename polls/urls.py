@@ -9,7 +9,7 @@ from polls import views
 # Additionally, we include login URLs for the browseable API.
 
 urlpatterns = patterns('',
-	url(r'^$', views.IndexView.as_view(), name='index'),
+	
 	url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
 	url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
 	url(r'^(?P<poll_id>\d+)/vote/$', views.vote, name='vote'),
@@ -20,6 +20,3 @@ urlpatterns = patterns('',
 
 )
 
-#urlpatterns = patterns('',
-#	url(r'^', include(router.urls)),
-#	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))

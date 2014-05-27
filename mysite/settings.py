@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-SITE_ID = 2
+SITE_ID = 1
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,23 +43,23 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'rest_framework',
+    'djangocms_link',
+    'djangocms_snippet',
+    'djangocms_text_ckeditor',  # note this needs to be above the 'cms' entry
+    'cmsplugin_cascade',
     'cms',
     'mptt',
     'menus',
     'south',
     'sekizai',
     'taggit',
-    'autocomplete_light'
+    #'autocomplete_light',
+    
 )
 
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+CMS_CASCADE_PLUGINS = ('bootstrap3',)
 
+MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -100,12 +100,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'django',
+        'NAME':'django_1',
         'USER':'root',
         'PASSWORD':'omkar',
         'HOST':'127.0.0.1',
         'PORT':'3306',
-        'ATOMIC_REQUESTS':True
+        'ATOMIC_REQUESTS':False
     }
 }
 
@@ -172,4 +172,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+CMS_PLACEHOLDER_CONF = {
+        'Page Content': {
+        'plugins': ['BootstrapContainerPlugin'],
+    },
 }

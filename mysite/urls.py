@@ -22,17 +22,10 @@ router.register(r'groups', views.GroupViewSet)
 
 
 #Django cms urls.
-"""
+
 urlpatterns = i18n_patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('cms.urls')),
-	url(r'^polls/', include("polls.urls")),
-)
-"""
-
-urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-	url(r'^polls/', include("polls.urls")),
 )
 
 urlpatterns = patterns('',
