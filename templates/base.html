@@ -10,29 +10,21 @@
 
      
 
-      {% addtoblock "css" %}
-        <link href="/media/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
-      {% endaddtoblock %}
       
-      <h3>Menu</h3>
+      
+      
       <ul class="nav nav-tabs">
         {% show_menu 1 100 0 1 "polls/menu.html"%}
       </ul>
       
 
 
-<h1>Icon extension</h1>
-{% if request.current_page.iconextension %}
-    <img src="/media/{{request.current_page.iconextension.image }}">
-{% endif %}  
-<h1>Plugin</h1>   
+   
       {% cms_toolbar %}
       {% placeholder base_content %}
       {% block base_content %}{% endblock %}
 
-      {% addtoblock "js" %}
-        <script type="text/javascript" src="/media/css/bootstrap.min.css"></script>
-      {% endaddtoblock %}
+      
 
       {% render_block "js" %}
   </body>

@@ -42,22 +42,22 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'polls',
+    'news',
     'rest_framework',
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_text_ckeditor',  # note this needs to be above the 'cms' entry
-    'cmsplugin_cascade',
+    #'cmsplugin_cascade',
     'cms',
     'mptt',
     'menus',
     'south',
     'sekizai',
     'taggit',
-    #'autocomplete_light',
     
 )
 
-CMS_CASCADE_PLUGINS = ('bootstrap3',)
+#CMS_CASCADE_PLUGINS = ('bootstrap3',)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,7 +84,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-    'cms.context_processors.media',
+    'cms.context_processors.cms_settings',
     'sekizai.context_processors.sekizai',
 )
 
@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'django_1',
+        'NAME':'django_3',
         'USER':'root',
         'PASSWORD':'omkar',
         'HOST':'127.0.0.1',

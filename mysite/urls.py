@@ -1,5 +1,5 @@
-import autocomplete_light
-autocomplete_light.autodiscover()
+#import autocomplete_light
+#autocomplete_light.autodiscover()
 
 from django.conf.urls import patterns, include, url
 
@@ -28,10 +28,16 @@ urlpatterns = i18n_patterns('',
     url(r'^', include('cms.urls')),
 )
 
-urlpatterns = patterns('',
-    # [...] your url patterns are here
-	url(r'^autocomplete/', include('autocomplete_light.urls')),
+urlpatterns = i18n_patterns('',
+	url(r'^polls1/', include('polls.urls')),
 ) + urlpatterns
+
+
+
+#urlpatterns = patterns('',
+    # [...] your url patterns are here
+#	url(r'^autocomplete/', include('autocomplete_light.urls')),
+#) + urlpatterns
 
 if settings.DEBUG:
     urlpatterns = patterns('',
