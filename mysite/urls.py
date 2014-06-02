@@ -8,6 +8,7 @@ from django.contrib import admin
 from django.conf.urls import patterns, url, include
 from rest_framework import routers
 from polls import views
+from custom_rest import views as views_rest
 
 
 from django.conf.urls import *
@@ -19,6 +20,7 @@ admin.autodiscover()
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'news', views_rest.NewsViewSet)
 
 
 #Django cms urls.
@@ -33,6 +35,20 @@ urlpatterns = i18n_patterns('',
 ) + urlpatterns
 
 
+urlpatterns = patterns('',
+	url(r'^', include(router.urls)),
+	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+) + urlpatterns
+
+
+urlpatterns = patterns('',
+    # [...] your url patterns are here
+	url(r'', include('custom_rest.urls')),
+) + urlpatterns
+
+urlpatterns = patterns('',
+	url(r'^docs/', include('rest_framework_swagger.urls')),
+) + urlpatterns
 
 #urlpatterns = patterns('',
     # [...] your url patterns are here

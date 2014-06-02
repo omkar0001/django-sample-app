@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from news.serializers import NewsContentModelSerializer
+from custom_rest.serializers import NewsContentModelSerializer
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -38,6 +38,10 @@ def news_rest_list(request):
 			return JSONResponse(serializer.data, status=201)
 		return JSONResponse(serializer.errors, status=400)
 
+class NewsViewSet(viewsets.ModelViewSet):
+    
+	queryset = NewsContent.objects.all()
+	serializer_class = NewsContentModelSerializer
 
 
 

@@ -43,7 +43,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'news',
+    'custom_rest',
     'rest_framework',
+    'rest_framework_swagger',
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_text_ckeditor',  # note this needs to be above the 'cms' entry
