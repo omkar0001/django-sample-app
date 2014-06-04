@@ -29,6 +29,8 @@ class NewsContent(models.Model):
 	description = models.TextField(max_length=200)
 	videoUrl = models.URLField()
 	image = models.ImageField(upload_to="icons")
+	def __unicode__(self):
+		return self.title
 
 class NewsContentPluginModel(CMSPlugin):
 	news = models.ForeignKey('news.NewsContent', related_name='news')
